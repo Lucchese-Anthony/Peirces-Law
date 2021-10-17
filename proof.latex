@@ -1,75 +1,74 @@
-\begin{theorem*}[Peirce's Law]$((P\implies Q)\implies P)\implies P$
-\end{theorem*}
+Peirce's Law 
+((P ⇒ Q) ⇒ P) ⇒ P
 
-\begin{formalproof}
-\assume{$(P\implies Q)\implies P$}
-    \assume{$\neg((P\implies Q)$ or $\neg(P\implies Q))$}
-        \assume{$P\implies Q$}
-            \statement{$(P\implies Q)$ or $\neg(P\implies Q)$}{by or+; 3}
-        \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 2, 4}
-        \stopassume
-        \statement{$\neg(P\implies Q)$}{by not-; 3, 5}
-        \statement{$(P\implies Q)$ or $\neg(P\implies Q)$}{by or+; 6}
-        \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 2, 7}
-        \statement{$(P\implies Q)$ or $\neg(P\implies Q)$}{by not-; 2, 8}
-    \stopassume
-    \statement{$(P\implies Q)\implies P$}{by copy; 1}
-    \assume{$\neg(P\implies Q)$}
-        \assume{$\neg P$ or $Q$}
-            \assume{$\neg P$}
-                \assume{$\neg Q$}
-                \stopassume
-                \statement{$\neg Q \implies \neg P$}{by $\implies+$; 13, 14}
-            \stopassume
-            \assume{$\neg Q \implies \neg P$}
-                \assume{$P$}
-                    \assume{$\neg Q$}
-                        \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 13, 17}
-                    \stopassume
-                    \statement{$Q$}{by not-; 18, 19}
-                \stopassume
-                \statement{$P\implies Q$}{by $\implies+$; 17, 20}
-            \stopassume
-            \statement{$(\neg Q\implies \neg P)\implies P\implies Q$}{by $\implies+$; 16, 21}
-            \statement{$P\implies Q$}{by $\implies-$; 15, 22}
-            \statement{$\neg P \implies (P\implies Q)$}{by $\implies+$; 13, 23}
-            \assume{$Q$}
-                \assume{$P$}
-                \stopassume
-                \statement{$P\implies Q$}{by $\implies+$; 25, 26}
-            \stopassume
-            \statement{$Q\implies (P\implies Q)$}{by $\implies+$; 25, 27}
-            \statement{$P\implies Q$}{by or-; 12, 24, 28}
-            \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 11, 29}
-        \stopassume
-        \statement{$\neg(\neg P$ or $Q)$}{by not+; 12, 30}
-        \assume{$\neg(\neg P$ or $Q)$}
-                \assume{$\neg(\neg\neg P$ and $\neg Q)$}
-                \assume{$\neg P$}
-                    \statement{$\neg P$ or $Q$}{by or+; 34}
-                    \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 32, 35}
-                \stopassume
-                \statement{$\neg\neg P$}{by not+; 34, 36}
-                \assume{$Q$}
-                    \statement{$\neg P$ or $Q$}{by or+; 38}
-                    \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 32, 38}
-                \stopassume
-                \statement{$\neg Q$}{by not+; 38, 40}
-                \statement{$\neg\neg P$ and $\neg Q$}{by and+; 37, 41}
-                \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 33, 42}
-            \stopassume
-            \statement{$\neg\neg P$ and $\neg Q$}{by not-; 33, 43}
-        \stopassume
-        \statement{$\neg(\neg P$ or  $Q)\implies \neg\neg P$ and $\neg Q$}{by $\implies+$; 32, 44}
-        \statement{$\neg \neg P$ and $\neg Q$}{by $\implies-$; 31, 45}
-        \statement{$\neg\neg P$}{by and-;46}
-        \assume{$\neg P$}
-            \statement{$\rightarrow\leftarrow$}{by $\rightarrow\leftarrow+$; 47, 48}
-        \stopassume
-        \statement{$P$}{by not-; 48, 49}
-    \stopassume
-    \statement{$\neg P\implies(P\implies Q)\implies P$}{by $\implies+$; 11, 50}
-    \statement{$P$}{by or-; 9, 10, 51}
-\stopassume
-\statement{$((P\implies Q)\implies P)\implies P$}{by $\implies +; 1,$}
-\end{formalproof}
+
+(P ⇒ Q) ⇒ P
+    ¬((P ⇒ Q) or ¬(P ⇒ Q))
+        P ⇒ Q
+            (P ⇒ Q) or ¬(P ⇒ Q) 	by or+; line 3
+        ⇒⇐			by ⇒⇐+; 2, 4
+        
+        ¬(P ⇒ Q)			by not-; 3, 5
+        (P ⇒ Q) or ¬(P ⇒ Q) 	by or+; line 6
+        ⇒⇐			by ⇒⇐+; 2, 7
+        (P ⇒ Q) or ¬(P ⇒ Q) 	by not-; 2, 8
+    
+    (P ⇒ Q) ⇒ P			by copy; 1
+    ¬(P ⇒ Q)
+        ¬ P or Q
+            ¬ P
+                ¬ Q
+                
+                ¬ Q  ⇒ ¬ P	by  ⇒+; 13, 14
+            
+            ¬ Q  ⇒ ¬ P
+                P
+                    ¬ Q
+                        ⇒⇐	by ⇒⇐+; 13, 17
+                    
+                    Q		by not-; 18, 19
+                
+                P ⇒ Q		by  ⇒+; 17, 20
+            
+            (¬ Q ⇒ ¬ P) ⇒ P ⇒ Q	by  ⇒+; 16, 21
+            P ⇒ Q		by  ⇒-; 15, 22
+            ¬ P  ⇒ (P ⇒ Q)	by  ⇒+; 13, 23
+            Q
+                P
+                
+                P ⇒ Q		by  ⇒+; 25, 26
+            
+            Q ⇒ (P ⇒ Q)		by  ⇒+; 25, 27
+            P ⇒ Q		by or-; 12, 24, 28
+            ⇒⇐			by ⇒⇐+; 11, 29
+        
+        ¬(¬ P or Q)		by not+; 12, 30
+        ¬(¬ P or Q)
+                ¬(¬¬ P and ¬ Q)
+                ¬ P
+                    ¬ P or Q	by or+; 34
+                    ⇒⇐		by ⇒⇐+; 32, 35
+                
+                ¬¬ P		by not+; 34, 36
+                Q
+                    ¬ P or Q	by or+; 38
+                    ⇒⇐		by ⇒⇐+; 32, 38
+                
+                ¬ Q		by not+; 38, 40
+                ¬¬ P and ¬ Q	by and+; 37, 41
+                ⇒⇐		by ⇒⇐+; 33, 42
+            
+            ¬¬ P and ¬ Q		by not-; 33, 43
+        
+        ¬(¬ P or  Q) ⇒ ¬¬ P and ¬ Qby  ⇒+; 32, 44
+        ¬ ¬ P and ¬ Q		by  ⇒-; 31, 45
+        ¬¬ P			by and-;46
+        ¬ P
+            ⇒⇐			by ⇒⇐+; 47, 48
+        
+        P			by not-; 48, 49
+    
+    ¬ P ⇒(P ⇒ Q) ⇒ P		by  ⇒+; 11, 50
+    P				by or-; 9, 10, 51
+
+((P ⇒ Q) ⇒ P) ⇒ P		by  ⇒ +; 1
